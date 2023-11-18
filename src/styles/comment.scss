@@ -12,3 +12,16 @@
 @font-face {
 
 }
+
+body{
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+
+    background-color: black;
+}
+.frame{
+    background-color: white;
+    width: 430px;
+}
