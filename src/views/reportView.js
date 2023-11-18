@@ -24,7 +24,7 @@ function ReportView() {
     }
 
     return(
-        <div className="report">
+        <div className="reportView">
             <img
                 id='reportBtn'
                 src='/images/reportBtn.png'
