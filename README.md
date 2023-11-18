@@ -12,13 +12,13 @@
 
 ## git convention
 
-- `[tag] #이슈 - 커밋메세지`
 |tag|설명|
 |---|---|
 |Feat|새 기능 구현|
 |Fix|버그 수정|
 |Test|테스트 코드|
 |Style|기능에 영향을 주지 않는 수정|
+- `[tag] #이슈 - 커밋메세지`
 
 ## folder structure
 
