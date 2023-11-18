@@ -7,6 +7,7 @@ import Main from './views/mainView';
 import GetPathView from './views/getPathView';
 import ReportView from './views/reportView';
 import PostBoardView from './views/postBoardView';
+import PostView from './views/postView';
 import './styles/comment.scss';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
@@ -19,6 +20,7 @@ root.render(
                 <Route path="/getPath" element={<GetPathView />} />
                 <Route path="/report" element={<ReportView />} />
                 <Route path="/postBoard" element={<PostBoardView />} />
+                <Route path="/:postId" element={<PostView />} />
             </Routes>
         </BrowserRouter>
     </div>

@@ -5,11 +5,9 @@
  * https://github.com/dandamdandam/En_word_test_web/blob/main/client/src/styles/style.css <- 참고
  * - 버튼, input, textarea)
  */
+ @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap');
 
 :root {
-
-}
-@font-face {
 
 }
 
@@ -18,7 +16,8 @@ body{
     padding: 0;
     display: flex;
     justify-content: center;
-
+    
+    font-family: 'Roboto', sans-serif;
     background-color: black;
 }
 .frame{
