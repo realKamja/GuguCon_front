@@ -1,8 +1,8 @@
-import { useState, useEffect, useRef } from 'react';
+import { useEffect, useRef } from 'react';
+import axios from 'axios';
 
 function Map() {
     const mapRef = useRef();
-    const [markers, setMarkers] = useState([]);
     const { naver } = window;
     
     useEffect(() => {
@@ -20,26 +20,17 @@ function Map() {
             }
         });
         const map = new naver.maps.Map(mapRef.current, mapOptions);
-        
-        // TODO 서버에 요청하는 get 함수로 대체
-        setMarkers([
-            new naver.maps.Marker({
-                map: map,
-                position: new naver.maps.LatLng(37.4526437, 126.49236),
-            }),
-            new naver.maps.Marker({
-                map: map,
-                position: new naver.maps.LatLng(37.4768068, 126.4847975),
-            }),
-            new naver.maps.Marker({
-                map: map,
-                position: new naver.maps.LatLng(37.4988237, 126.4960839),
-            }),
-            new naver.maps.Marker({
-                map: map,
-                position: new naver.maps.LatLng(37.8928822, 127.7343884),
-            }),
-        ]);
+
+        // 위치 정보 받아 오기
+        axios.get('/api/report/getAllLocations')
+            .then(res => {
+                for(var i=0; i<res.length; i++){
+                    new naver.maps.Marker({
+                        map: map,
+                        position: new naver.maps.LatLng(res[i].latitude, res[i].longitude),
+                    })
+                }
+            }).catch( error => {console.log(error);})
     }, []);
     return(
         <div className='mapContainer' ref={mapRef}></div>
