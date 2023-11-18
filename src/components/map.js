@@ -1,3 +1,4 @@
+import React from 'react';
 import { useRef, useState, useEffect } from 'react';
 
 import './styles/map.scss';
@@ -18,16 +19,20 @@ function Map() {
     function initMap(lat, lon, zoom){
         var mapOptions = {
             center: new naver.maps.LatLng(lat, lon),
-            zoom: zoom
+            zoom: zoom,
+            zoomControl: true,
+            zoomControlOptions: {
+              position: naver.maps.Position.TOP_RIGHT,
+            },
         }
-        console.log(mapOptions);
         setMap(new naver.maps.Map(mapRef.current, mapOptions));
+        console.log(mapRef.current);
+        console.log(new naver.maps.Map(mapRef.current, mapOptions));
     };
     useEffect(() => {
-        console.log('start');
         // 지도 초기 설정
         navigator.geolocation.getCurrentPosition((pos) => {
-            initMap(pos.coords.latitude, pos.coords.longitude, 10);
+            initMap(pos.coords.latitude, pos.coords.longitude, 16);
         });
     }, []);
 
@@ -36,4 +41,4 @@ function Map() {
     );
 }
 
-export default Map();
+export default Map;
