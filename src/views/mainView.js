@@ -1,52 +1,55 @@
-import { useState, useEffect, useRef } from 'react';
+import { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 
 import '../styles/main.scss';
+import Map from '../components/map';
 
 function Main() {
-    const mapRef = useRef();
-    const [markers, setMarkers] = useState([]);
-    const { naver } = window;
-    
-    useEffect(() => {
-        
-        // 지도 초기 설정. getCurrentPosition(사용자정보를 받아온 경우, 받아오지 못한 경우)
-        let mapOptions;
-        navigator.geolocation.getCurrentPosition((pos) => {
-            mapOptions = {
-                center: new naver.maps.LatLng(pos.coords.latitude, pos.coords.longitude),
-                zoom: 16,
-                zoomControl: true,
-                zoomControlOptions: {
-                  position: naver.maps.Position.TOP_RIGHT,
-                },
-            }
-        });
-        const map = new naver.maps.Map(mapRef.current, mapOptions);
-        
-        // TODO 서버에 요청하는 get 함수로 대체
-        setMarkers([
-            new naver.maps.Marker({
-                map: map,
-                position: new naver.maps.LatLng(37.4526437, 126.49236),
-            }),
-            new naver.maps.Marker({
-                map: map,
-                position: new naver.maps.LatLng(37.4768068, 126.4847975),
-            }),
-            new naver.maps.Marker({
-                map: map,
-                position: new naver.maps.LatLng(37.4988237, 126.4960839),
-            }),
-            new naver.maps.Marker({
-                map: map,
-                position: new naver.maps.LatLng(37.8928822, 127.7343884),
-            }),
-        ]);
-    }, []);
+    const navigator = useNavigate();
+    const [spots, setSpots] = useState(0);
+
+    const upSpots = () => {
+        if(spots!=5)
+            setSpots(spots+1);
+    }
+    const downSpots = () => {
+        if(spots!=0)
+            setSpots(spots-1);
+    }
 
     return(
         <div className='main'>
-            <div className='mapContainer' ref={mapRef}></div>
+            <Map />
+            <div className='navi'>
+                <div className='para'>
+                    <span>나 하나쯤...?</span>
+                    <span>아니, 나부터!</span>
+                </div>
+                <div className='toGetPath'>
+                    <span>플로깅스팟수</span>
+                    <div className='spotCtrl'>
+                        <span>{spots}개</span>
+                        <div className='spotBtn'>
+                            <button 
+                                id='upBtn'
+                                onClick={upSpots}
+                            >▴</button>
+                            <button
+                                id='downBtn'
+                                onClick={downSpots}
+                            >▾</button>
+                        </div>
+                        <button 
+                            id='goGetPath'
+                            onClick={() => {navigator('/getPath')}}
+                        >
+                            GO
+                        </button>
+                    </div>
+                </div>
+                <button onClick={() => {navigator('/report')}}/>
+                <button onClick={() => {navigator('/postBoard')}}/>
+            </div>
         </div>
     );
 }
