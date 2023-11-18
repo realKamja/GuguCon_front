@@ -10,6 +10,16 @@
     > ex) `.loginView{ h1{background-color: black} }`
 3. 페이지 코드를 작성할 때 컴포넌트로 뺄 수 있는 건 최대한 빼면서 코드를 100줄 이내로 작성하는 것을 추천합니다.
 
+## git convention
+
+- `[tag] #이슈 - 커밋메세지`
+|tag|설명|
+|---|---|
+|Feat|새 기능 구현|
+|Fix|버그 수정|
+|Test|테스트 코드|
+|Style|기능에 영향을 주지 않는 수정|
+
 ## folder structure
 
 ```
