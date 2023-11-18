@@ -1,0 +1,80 @@
+.show_route {
+    width: 182px;
+    height: 197px;
+    border-radius: 20px;
+    border: none;
+    box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+    color: #000;
+    font-family: Inter;
+    font-size: 18px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    margin-top: 10px; // Add consistent spacing
+}
+
+.show_route {
+    background: #00ffab;
+}
+
+.show_route:hover{
+    box-shadow: none;
+}
+
+/* Base styles */
+.main {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    background-color: #f2f2f2;
+  }
+  
+  .map,
+  .info {
+    width: 300px;
+    margin: 20px 0;
+  }
+  
+  /* Map section */
+  .map {
+    display: flex;
+    justify-content: center;
+  }
+  
+  /* Information section */
+  .info {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+  
+  /* Search input */
+  .search {
+    width: 100%;
+    height: 40px;
+    border-radius: 10px;
+    border: 1px solid #ccc;
+    padding: 10px;
+    font-family: Inter;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+  }
+  
+  /* Textarea */
+  textarea {
+    width: 100%;
+    height: 100px;
+    border-radius: 10px;
+    border: 1px solid #ccc;
+    padding: 10px;
+    font-family: Inter;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    resize: none;
+  }
