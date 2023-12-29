@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import Map from '../components/map';
-import PloggingInterface from '../components/PloggingInterface/ploggingInterface';
+import Map from '../components/Map';
+import PloggingInterface from '../components/PloggingInterface';
 import '../styles/main.scss';
 
 
