@@ -84,7 +84,7 @@ function PloggingInterface() {
     return (
         <div className={isOpen ? 'ploggingInterface' : 'ploggingInterface close'}>
             {_rounndedUpperButton()}
-            {isOpen ? _openInterface() : _openInterface()}
+            {_openInterface()}
         </div>
     );
 }
