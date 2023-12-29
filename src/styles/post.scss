@@ -1,0 +1,28 @@
+.post{
+    padding: 20px;
+    .titleContainer{
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        margin-bottom: 20px;
+
+        img{
+            width: 50px;
+            height: 50px;
+        }
+    }
+    .contentContainer{
+        overflow: hidden;
+        border-radius: 30px;
+
+        &>*{
+            display: block;
+            padding:20px;
+            background-color: lightcyan;
+        }
+        .contents{
+            background-color: #00FFAB;
+            opacity: 50%;
+        }
+    }
+}
