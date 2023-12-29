@@ -61,12 +61,12 @@ $box-shadow-standard: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
 
   .spotBtn {
     display: flex;
+    flex-direction: column;
     justify-content: space-between;
     width: 80px; // Adjusted for better layout
   }
 
   #upBtn, #downBtn {
-    padding: 10px;
     border: none;
     cursor: pointer;
     background-color: transparent;

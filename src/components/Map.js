@@ -6,7 +6,6 @@ function Map() {
     const { naver } = window;
     
     useEffect(() => {
-        
         // 지도 초기 설정. getCurrentPosition(사용자정보를 받아온 경우, 받아오지 못한 경우)
         let mapOptions;
         navigator.geolocation.getCurrentPosition((pos) => {
@@ -18,10 +17,11 @@ function Map() {
                   position: naver.maps.Position.TOP_RIGHT,
                 },
             }
+            console.log(pos.coords.latitude+" "+pos.coords.longitude);
         });
         const map = new naver.maps.Map(mapRef.current, mapOptions);
 
-        // 위치 정보 받아 오기
+        // 위치 정보                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                받아 오기
         axios.get('/api/report/getAllLocations')
             .then(res => {
                 for(var i=0; i<res.length; i++){
