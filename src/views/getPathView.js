@@ -32,12 +32,14 @@ function GetPathView() {
     return (
         <div className='main'>
           <div className='map'>
+            
             <button className='green_button dark'>
               <svg xmlns="http://www.w3.org/2000/svg" width="60" height="80" viewBox="0 0 60 80" fill="none">
                 <path d="M3.5 44.7083V6.65618C3.5 5.00513 3.5 4.18222 3.97667 3.79159C4.45333 3.40097 5.14083 3.66139 6.51583 4.18222L51.9779 21.4062C54.6729 22.427 56.0204 22.9374 56.0204 23.8749C56.0204 24.8124 54.6729 25.3228 51.9779 26.3437L3.5 44.7083ZM3.5 44.7083V75.9583" stroke="white" stroke-width="6.25" stroke-linecap="round"/>
               </svg>
               내 플로깅 모집
             </button>
+            
             <button
               className='green_button'
               onClick={() =>
@@ -52,6 +54,7 @@ function GetPathView() {
               경로 미리 보기
               {/* <br/> &#40;새탭&#41; */}
             </button>
+          
           </div>
           <div className='info'>
             <input
