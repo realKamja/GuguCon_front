@@ -26,6 +26,12 @@
   }
   
   /* Information section */
+  form{
+    display: flex;
+    height: 100%;
+    width: 100%;
+  }
+
   .info {
     height: 100%;
     padding: 5%;

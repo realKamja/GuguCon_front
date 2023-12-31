@@ -1,11 +1,11 @@
-import { useEffect, useState } from 'react';
+import { useEffect, useReducer, useRef, useState } from 'react';
 import axios from 'axios';
 import '../styles/getpath.scss';
 import '../styles/greenButton.scss';
 
 function GetPathView() {
     const [path, setPath] = useState([{latitude: 37.4526437, longitude: 126.49236}]);
-
+    const formRef = useRef(null);
     useEffect(() => {
         var lat=37.8864916;
         var lng=127.7364351;
@@ -28,12 +28,34 @@ function GetPathView() {
             ]);
           }).catch(error => {console.log(error);})
     }, [])
+   
+    const getPathUrl = () => {
+      return `http://map.naver.com/index.nhn?slng=${path[0].longitude}&slat=${path[0].latitude}&stext=출발지&elng=${path[path.length - 1].longitude}&elat=${path[path.length - 1].latitude}&etext=도착지&menu=route&pathType=3`;
+    }
+
+    const submit = (event) => {
+      event.preventDefault();
+      const formData = new FormData(formRef.current);
+      const title = formData.get('title');
+      const contents = formData.get('contents');
+      const pathUrl = getPathUrl();
+      console.log(title, contents, pathUrl);
+      axios.post('/api/post', {
+        title: title,
+        contents: contents,
+        pathUrl: pathUrl
+      }).then(res => {
+        // console.log(res);
+      }).catch(error => {
+        console.log(error);
+      })
+    }
 
     return (
         <div className='main'>
           <div className='map'>
             
-            <button className='green_button dark'>
+            <button className='green_button dark' onClick={event => submit(event)}>
               <svg xmlns="http://www.w3.org/2000/svg" width="60" height="80" viewBox="0 0 60 80" fill="none">
                 <path d="M3.5 44.7083V6.65618C3.5 5.00513 3.5 4.18222 3.97667 3.79159C4.45333 3.40097 5.14083 3.66139 6.51583 4.18222L51.9779 21.4062C54.6729 22.427 56.0204 22.9374 56.0204 23.8749C56.0204 24.8124 54.6729 25.3228 51.9779 26.3437L3.5 44.7083ZM3.5 44.7083V75.9583" stroke="white" stroke-width="6.25" stroke-linecap="round"/>
               </svg>
@@ -44,7 +66,7 @@ function GetPathView() {
               className='green_button'
               onClick={() =>
                 window.open(
-                  `http://map.naver.com/index.nhn?slng=${path[0].longitude}&slat=${path[0].latitude}&stext=출발지&elng=${path[path.length - 1].longitude}&elat=${path[path.length - 1].latitude}&etext=도착지&menu=route&pathType=3`,
+                  getPathUrl(),
                   '_blank'
                 )
               }
@@ -55,25 +77,28 @@ function GetPathView() {
               {/* <br/> &#40;새탭&#41; */}
             </button>
           </div>
-          
-          <div className='info'>
-            <div className='title'>
-              <div className='icon'>
-               <svg xmlns="http://www.w3.org/2000/svg" width="53" height="52" viewBox="0 0 53 52" fill="none">
-                <ellipse cx="26.5" cy="26.5" rx="25" ry="25.5" fill="#00FFAB"/>
-               </svg>
-                <img src='/images/titleDeco.png'/>
+          <form ref = {formRef}>
+            <div className='info'>
+              <div className='title'>
+                <div className='icon'>
+                <svg xmlns="http://www.w3.org/2000/svg" width="53" height="52" viewBox="0 0 53 52" fill="none">
+                  <ellipse cx="26.5" cy="26.5" rx="25" ry="25.5" fill="#00FFAB"/>
+                </svg>
+                  <img src='/images/titleDeco.png'/>
+                </div>
+                
+                <input
+                  type='text'
+                  className='search'  
+                  placeholder='제목'
+                  name='title'
+                ></input>
               </div>
-              <input
-                type='text'
-                className='search'  
-                placeholder='제목'
-              ></input>
-            </div>
 
-            <textarea placeholder='내용을 입력하세요.'></textarea>
+              <textarea placeholder='내용을 입력하세요.' name='contents'></textarea>         
+            </div>
+          </form>
           
-          </div>
         </div>
       );
 }
