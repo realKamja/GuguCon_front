@@ -60,7 +60,7 @@ function GetPathView() {
             <div className='title'>
               <div className='icon'>
                <svg xmlns="http://www.w3.org/2000/svg" width="53" height="52" viewBox="0 0 53 52" fill="none">
-                <ellipse cx="26.5" cy="26" rx="26.5" ry="26" fill="#00FFAB"/>
+                <ellipse cx="26.5" cy="26.5" rx="25" ry="25.5" fill="#00FFAB"/>
                </svg>
                 <img src='/images/titleDeco.png'/>
               </div>

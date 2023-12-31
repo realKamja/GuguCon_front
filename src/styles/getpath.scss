@@ -3,7 +3,7 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: flex-end;
+    justify-content: center;
     height: 100vh;
     background-color: #f2f2f2;
   }
@@ -27,7 +27,7 @@
   
   /* Information section */
   .info {
-    height: 50%;
+    height: 100%;
     padding: 5%;
     padding-top: 10%;
     border-radius: 40px 40px 0px 0px;
@@ -51,29 +51,34 @@
     &::after{
       content: '';
       // position: relative;
-      left: 0; /* 아이콘의 시작 부분과 정렬 */
-      top: 50%; /* 아이콘의 중간과 정렬 */
-      width: 20px;
+      // left: 0; /* 아이콘의 시작 부분과 정렬 */
+      // top: 50%; /* 아이콘의 중간과 정렬 */
+      // width: 20px;
       height: 2px; /* 선의 높이 예시 */
-      width: 100%; /* 선이 컨테이너 요소의 전체 너비로 확장됨 */
+      width: 85%; /* 선이 컨테이너 요소의 전체 너비로 확장됨 */
       background-color: #00FFAB; /* 선의 색상 */
     }
+
     input{
       width: 80%;
       height: 50%;
       border: none;
+      margin-left: 2px;
     }
-    .icon{
-      width: 14%;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      img{
-        z-index: 1000;
-        position: absolute;
-        background-color: #00FFAB;
-      }
+  }
+
+.icon{
+  width: 14%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  box-shadow: inset 0 0 0 10px #00FFAB, 0 0 0 2px #00FFAB;
+    img{
+      z-index: 1000;
+      position: absolute;
+     background-color: #00FFAB;
     }
   }
   
