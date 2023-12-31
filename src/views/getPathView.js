@@ -17,7 +17,7 @@ function GetPathView() {
             return Math.sqrt(Math.pow(p.latitude - lat, 2) + Math.pow(p.longitude - lng, 2));
         }
         // 군집 대표 좌표 리스트 서버에서 받아오기
-        axios.get('/api/report/location/union')
+        axios.get('/api/report/union')
           .then(res => {
             // 거리를 기준으로 정렬
             res.sort((a, b) => calcDistance(a)-calcDistance(b));
