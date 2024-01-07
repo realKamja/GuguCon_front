@@ -1,26 +1,3 @@
-.show_route {
-    width: 182px;
-    height: 197px;
-    border-radius: 20px;
-    border: none;
-    box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
-    color: #000;
-    font-family: Inter;
-    font-size: 18px;
-    font-style: normal;
-    font-weight: 400;
-    line-height: normal;
-    margin-top: 10px; // Add consistent spacing
-}
-
-.show_route {
-    background: #00ffab;
-}
-
-.show_route:hover{
-    box-shadow: none;
-}
-
 /* Base styles */
 .main {
     display: flex;
@@ -33,26 +10,86 @@
   
   .map,
   .info {
-    width: 300px;
+    width: 100%;
     margin: 20px 0;
   }
   
+  
+
   /* Map section */
   .map {
     display: flex;
     justify-content: center;
+    // justify-content: space-around; /* Use space-between if you want them to be at the edges of the container */
+    align-items: center;
+    margin: 0 auto;
   }
   
   /* Information section */
+  form{
+    display: flex;
+    height: 100%;
+    width: 100%;
+  }
+
   .info {
+    height: 100%;
+    padding: 5%;
+    padding-top: 10%;
+    border-radius: 40px 40px 0px 0px;
+    border: 1px solid #00FFAB;
+    background: #FFF;
+    box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+    box-sizing: border-box;
     display: flex;
     flex-direction: column;
     gap: 10px;
+    margin-bottom: 0;
+  }
+
+  .title{
+    display: flex;
+    justify-content: center;
+    
+    flex-wrap: wrap;
+    align-content: flex-end;
+    
+    &::after{
+      content: '';
+      // position: relative;
+      // left: 0; /* 아이콘의 시작 부분과 정렬 */
+      // top: 50%; /* 아이콘의 중간과 정렬 */
+      // width: 20px;
+      height: 2px; /* 선의 높이 예시 */
+      width: 85%; /* 선이 컨테이너 요소의 전체 너비로 확장됨 */
+      background-color: #00FFAB; /* 선의 색상 */
+    }
+
+    input{
+      width: 80%;
+      height: 50%;
+      border: none;
+      margin-left: 2px;
+    }
+  }
+
+.icon{
+  width: 14%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  box-shadow: inset 0 0 0 10px #00FFAB, 0 0 0 2px #00FFAB;
+    img{
+      z-index: 1000;
+      position: absolute;
+     background-color: #00FFAB;
+    }
   }
   
   /* Search input */
   .search {
-    width: 100%;
     height: 40px;
     border-radius: 10px;
     border: 1px solid #ccc;
@@ -66,8 +103,7 @@
   
   /* Textarea */
   textarea {
-    width: 100%;
-    height: 100px;
+    height: 100%;
     border-radius: 10px;
     border: 1px solid #ccc;
     padding: 10px;
