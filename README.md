@@ -6,12 +6,12 @@
 > <br/>[dandamdandam](https://github.com/dandamdandam) [GamJaDo](https://github.com/GamJaDo) [Jeje](https://github.com/jjh4450) [possiblly](https://github.com/possiblly)
 
 ## 목차
-- [화면설계서](https://github.com/realKamja/GuguCon_front?tab=readme-ov-file#화면_설계서)
+- [화면설계서](https://github.com/realKamja/GuguCon_front?tab=readme-ov-file#화면-설계서)
 - [요구사항](https://github.com/realKamja/GuguCon_front?tab=readme-ov-file#요구사항)
   - 서비스 기능 개요
   - 각 개요에 대한 디테일
-- [folder structure](https://github.com/realKamja/GuguCon_front?tab=readme-ov-file#folder_structure)
-- [tech stack](https://github.com/realKamja/GuguCon_front?tab=readme-ov-file#tech_stack)
+- [folder structure](https://github.com/realKamja/GuguCon_front?tab=readme-ov-file#folder-structure)
+- [tech stack](https://github.com/realKamja/GuguCon_front?tab=readme-ov-file#tech-stack)
 
 ## 화면 설계서
 ![totalView](https://github.com/realKamja/GuguCon_front/assets/102032954/ea40f0e0-699e-4f9d-85c3-e8cd14e3e0a6)
